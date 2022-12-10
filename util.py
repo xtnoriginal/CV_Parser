@@ -1,6 +1,9 @@
 import PyPDF2
 import docx2txt
 
+from resume_parser import Parser
+
+
 def read_docx(filename):
     '''Reads the contents of a docx file'''
     text = docx2txt.process(filename)
@@ -20,12 +23,18 @@ def read_pdf(filename):
         # extracting text from page
         data += '\n'+ pageObj.extractText()
 
-
     # closing the pdf file object
     fileObj.close()
     return data
 
 
 if __name__ == '__main__':
-    print(read_pdf('dataset/Resume.pdf'))
-    print(read_docx('dataset/Resume.docx'))
+    #print(read_docx('dataset/Resume.docx'))
+    #resumeText = read_pdf('dataset/my_resume.pdf')
+    resumeText = read_pdf('dataset/Resume.pdf')
+    print(resumeText)
+    parser = Parser(resumeText)
+    print(parser.extractEmail())
+    print(parser.extractPhoneNumber())
+    print('----')
+
