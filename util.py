@@ -30,7 +30,7 @@ def read_pdf(filename)->str:
 
 def  read_json(filename)-> str:
     '''Reads a json file and return the data'''
-    file  = open(filename)
+    file  = open(filename, encoding='utf-8')
     data  = json.load(file)
     file.close()
 
