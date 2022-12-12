@@ -32,9 +32,6 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
         parser1 = Parser(data)
         self.assertEqual(parser1.extractEmail(), None)
 
-
-
-
     def test_phone_number(self):
         pass
 
